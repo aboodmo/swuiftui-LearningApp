@@ -24,19 +24,32 @@ struct HomeView: View {
                         
                         ForEach(model.modules){ module in
                             
-                            NavigationLink {
+                            NavigationLink(tag: module.id, selection: $model.currentContentSelected, destination: {
                                 ContentView()
                                     .onAppear {
                                         model.beginModule(module.id)
+                                        print(model.currentContentSelected)
                                     }
-                                        
-                                    
-                                    
-                            } label: {
-                                
+                            }, label: {
                                 // Learning Card
                                 CardView(image: module.content.image, title: "Learn " + module.category, description: module.content.description, lessons: "\(module.content.lessons.count) Lessons", time: module.content.time)
-                            }
+                            })
+                            
+//                            {
+//                                ContentView()
+//                                    .onAppear {
+//                                        model.beginModule(module.id)
+//                                    }
+//
+//                            },
+//                        tag:
+//                        tag:{ },
+//                        selection:{ $model.currentContentSelected},
+//                        label: {
+//
+//                                // Learning Card
+//                                CardView(image: module.content.image, title: "Learn " + module.category, description: module.content.description, lessons: "\(module.content.lessons.count) Lessons", time: module.content.time)
+//                            }
                             
                             
 

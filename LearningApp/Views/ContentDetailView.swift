@@ -17,11 +17,16 @@ struct ContentDetailView: View {
         let url = URL(string: Constants.videoHost + (lesson?.video ?? ""))
         
         VStack {
+            //Video
             if url != nil {
                 VideoPlayer(player: AVPlayer(url: url!))
                     .cornerRadius(10)
             }
             
+            // Discription
+            CodeTextView()
+            
+            // Button to next lesson
             if model.hasNextLesson() {
                 Button {
                     // Advance lesson
@@ -29,11 +34,8 @@ struct ContentDetailView: View {
                 } label: {
                     ZStack{
                         
-                        Rectangle()
+                        RectangleCard(color: Color.green)
                             .frame(height: 48)
-                            .foregroundColor(Color.green)
-                            .cornerRadius(10)
-                            .shadow(radius: 5)
                         
                         Text("Next Lesson: \(model.currentModule!.content.lessons[model.currentLessonIndex + 1].title)")
                             .foregroundColor(Color.white)
@@ -44,10 +46,30 @@ struct ContentDetailView: View {
                 }
 
             }
+            else{
+                // Show Complete botton
+                Button {
+                    // Advance lesson
+                    model.currentContentSelected = nil
+                } label: {
+                    ZStack{
+                        
+                        RectangleCard(color: Color.green)
+                            .frame(height: 48)
+                        
+                        Text("Complete")
+                            .foregroundColor(Color.white)
+                            .bold()
+                        
+                    }
+                    
+                }
+            }
                 
         
         }
         .padding()
+        .navigationBarTitle(lesson?.title ?? "")
         
         
         
