@@ -23,6 +23,7 @@
 		2F5BECFD284AF8BD00A5CE42 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5BECFC284AF8BD00A5CE42 /* Constants.swift */; };
 		2FEB7DE8289868E700E7C2DC /* CodeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB7DE7289868E700E7C2DC /* CodeTextView.swift */; };
 		2FEB7DEC289C7BC400E7C2DC /* RectangleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB7DEB289C7BC400E7C2DC /* RectangleCard.swift */; };
+		2FEB7DEE289D896100E7C2DC /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB7DED289D896100E7C2DC /* TestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		2F5BECFC284AF8BD00A5CE42 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2FEB7DE7289868E700E7C2DC /* CodeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTextView.swift; sourceTree = "<group>"; };
 		2FEB7DEB289C7BC400E7C2DC /* RectangleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleCard.swift; sourceTree = "<group>"; };
+		2FEB7DED289D896100E7C2DC /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				2F5BECF22849BB4800A5CE42 /* ContentView.swift */,
 				2F5BECF42849C94400A5CE42 /* ContentCardView.swift */,
 				2F5BECF6284AF70B00A5CE42 /* ContentDetailView.swift */,
+				2FEB7DED289D896100E7C2DC /* TestView.swift */,
 				2FEB7DE7289868E700E7C2DC /* CodeTextView.swift */,
 				2FEB7DEB289C7BC400E7C2DC /* RectangleCard.swift */,
 			);
@@ -224,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FEB7DEE289D896100E7C2DC /* TestView.swift in Sources */,
 				2F11D9BD2849805000EEBFA8 /* HomeView.swift in Sources */,
 				2F11D9BB2849805000EEBFA8 /* LearningApp.swift in Sources */,
 				2F5BECF32849BB4800A5CE42 /* ContentView.swift in Sources */,

@@ -28,7 +28,7 @@ struct HomeView: View {
                                 ContentView()
                                     .onAppear {
                                         model.beginModule(module.id)
-                                        print(model.currentContentSelected)
+//                                        print(model.currentContentSelected)
                                     }
                             }, label: {
                                 // Learning Card
@@ -53,10 +53,22 @@ struct HomeView: View {
                             
                             
 
+                            NavigationLink(tag: module.id, selection: $model.currentTestSelected, destination: {
+                                TestView()
+                                    .onAppear {
+                                        model.beginTest(module.id)
+//                                        print(model.currentContentSelected)
+                                    }
+                            }, label: {
+                                //  Test Card
+                                CardView(image: module.test.image, title: module.category + " Test", description: module.test.description, lessons: "\(module.test.questions.count) Lessons", time: module.test.time)
+                            })
                             
-                            
-                            //  Test Card
-                            CardView(image: module.test.image, title: module.category + " Test", description: module.test.description, lessons: "\(module.test.questions.count) Lessons", time: module.test.time)
+//                            NavigationLink(tag: module.id, selection: $model.currentTestSelected, destination: TestView()) {
+//
+//                            }
+//                            //  Test Card
+//                            CardView(image: module.test.image, title: module.category + " Test", description: module.test.description, lessons: "\(module.test.questions.count) Lessons", time: module.test.time)
                             
                             
                         }
@@ -65,7 +77,7 @@ struct HomeView: View {
                     .accentColor(.black)
                     .padding()
                 }
-            }.navigationTitle("Get Strted")
+            }.navigationTitle("Get Started")
         }
         .navigationViewStyle(.stack)
         
