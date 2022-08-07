@@ -89,12 +89,14 @@ struct TestView: View {
                 }else{
                     // submit the answer
                     isSubmitted = true
+                    
+                    if SelectedAnwserIndex == model.currentQuestion!.correctIndex {
+                        score += 1
+                    }
                 }
                 
                 
-                if SelectedAnwserIndex == model.currentQuestion!.correctIndex {
-                    score += 1
-                }
+                
                 
             } label: {
                 ZStack{
@@ -111,7 +113,8 @@ struct TestView: View {
             
             
         }else{
-            ProgressView()
+//            ProgressView()
+            TestResultsView(score: score)
         }
     }
     
