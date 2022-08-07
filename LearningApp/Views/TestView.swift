@@ -59,21 +59,6 @@ struct TestView: View {
                                     }
                                 }
                                 
-//                                if index == SelectedAnwserIndex {
-//                                    RectangleCard(color: .gray)
-//                                        .frame(height: 48)
-//                                }else if (isSubmitted && index == model.currentQuestion!.correctIndex){
-//                                    RectangleCard(color: .green)
-//                                        .frame(height: 48)
-//                                }else if (isSubmitted && index != model.currentQuestion!.correctIndex){
-//                                    RectangleCard(color: .red)
-//                                        .frame(height: 48)
-//                                }else{
-//                                    RectangleCard(color: .white)
-//                                        .frame(height: 48)
-//                                }
-//                                RectangleCard(color: index == SelectedAnwserIndex ? .gray : .white)
-//                                    .frame(height: 48)
                                 
                                 Text(model.currentQuestion!.answers[index])
                                 
@@ -92,26 +77,56 @@ struct TestView: View {
             
             // Submit Answers Button
             Button {
+                
+                if isSubmitted {
+                    // move to next question
+                    model.nextQuestion()
+                    
+                    // Reset Proporties
+                    isSubmitted = false
+                    SelectedAnwserIndex = -1
+                    
+                }else{
+                    // submit the answer
+                    isSubmitted = true
+                }
+                
+                
                 if SelectedAnwserIndex == model.currentQuestion!.correctIndex {
                     score += 1
                 }
-                isSubmitted = true
+                
             } label: {
                 ZStack{
                     RectangleCard(color: .green)
                         .frame(height: 48)
                     
-                    Text("Submit")
+                    Text(buttonText)
                         .bold()
                         .foregroundColor(.white)
                     
                 }
                 .padding()
             }.disabled(SelectedAnwserIndex == -1)
-
+            
             
         }else{
             ProgressView()
+        }
+    }
+    
+    var buttonText: String {
+        
+        if isSubmitted {
+            if model.currentQuestionIndex + 1 == model.currentModule!.test.questions.count {
+                return "Finish"
+            }else {
+                return "Next"
+            }
+            
+            
+        }else {
+            return "Submit"
         }
     }
 }

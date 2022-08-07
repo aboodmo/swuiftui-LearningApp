@@ -99,11 +99,16 @@ class ContentModel: ObservableObject {
     }
     
     func nextLesson() {
+        // Advance the Lesson index
         currentLessonIndex += 1
         
+        // Check if it is within the range of lessons
         if currentLessonIndex < currentModule!.content.lessons.count {
+            
+            // setting the current lesson
             currentLesson = currentModule!.content.lessons[currentLessonIndex]
         }else{
+            // Reset properties
             currentLesson = nil
             currentLessonIndex = 0
         }
@@ -121,10 +126,28 @@ class ContentModel: ObservableObject {
         
         currentQuestionIndex = 0
         
-        // setting the currentQuestion
+        // setting the current question
         if currentModule?.test.questions.count ?? 0 > 0 {
             currentQuestion = currentModule!.test.questions[currentQuestionIndex]
             codeText = addStyling(currentQuestion!.content)
+        }
+    }
+    
+    func nextQuestion (){
+        // Advance the question index
+        currentQuestionIndex += 1
+        
+        // Check if it is within the range of questions
+        if currentQuestionIndex < currentModule!.test.questions.count {
+            
+            // Set the current question
+            currentQuestion = currentModule!.test.questions[currentQuestionIndex]
+            codeText = addStyling(currentQuestion!.content)
+        }else{
+            
+            // Reset properties
+            currentQuestion = nil
+            currentQuestionIndex = 0
         }
     }
     
