@@ -35,6 +35,8 @@ class ContentModel: ObservableObject {
     
     init() {
         getLocalData()
+        
+        getRemoteData()
     }
     
     // MARK: - Data Methods
@@ -68,6 +70,50 @@ class ContentModel: ObservableObject {
         }catch {
             print("Couldn't parse style data")
         }
+    }
+    
+    func getRemoteData() {
+        
+        // String Path
+        let urlString = "https://aboodmo.github.io/LearningApp-Data/data2.json"
+        
+        // Create url object
+        let url = URL(string: urlString)
+        
+        guard url != nil else {
+            return
+        }
+        
+        // Create urlRequest object
+        let request = URLRequest(url: url!)
+        
+        let session = URLSession.shared
+        
+        let dataTask = session.dataTask(with: request) { data, response, error in
+            
+            guard error == nil else {
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                
+                let modules = try decoder.decode([Module].self, from: data!)
+                
+                DispatchQueue.main.async {
+                    self.modules += modules
+                }
+                
+                
+            }catch {
+                
+            }
+            
+            
+        }
+        
+        dataTask.resume()
+        
     }
 
 

@@ -44,7 +44,7 @@ struct ContentDetailView: View {
                     }
                     
                 }
-
+                
             }
             else{
                 // Show Complete botton
@@ -65,8 +65,8 @@ struct ContentDetailView: View {
                     
                 }
             }
-                
-        
+            
+            
         }
         .padding()
         .navigationBarTitle(lesson?.title ?? "")

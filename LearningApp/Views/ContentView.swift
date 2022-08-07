@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-//    var module: Module
+    //    var module: Module
     @EnvironmentObject var model: ContentModel
     
     
@@ -20,7 +20,7 @@ struct ContentView: View {
                 
                 if model.currentModule != nil{
                     ForEach(0..<model.currentModule!.content.lessons.count){ i in
-
+                        
                         NavigationLink {
                             ContentDetailView()
                                 .onAppear {

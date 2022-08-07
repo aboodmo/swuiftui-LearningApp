@@ -14,7 +14,7 @@ struct TestResultsView: View {
     var score: Int
     
     var resultsHeading: String {
-
+        
         guard model.currentModule != nil else{
             return ""
         }
@@ -57,7 +57,7 @@ struct TestResultsView: View {
                 }
             }.padding()
             Spacer()
-
+            
         }
     }
 }

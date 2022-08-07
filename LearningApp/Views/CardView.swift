@@ -22,7 +22,7 @@ struct CardView: View {
                 .cornerRadius(10)
                 .shadow(radius: 5)
                 .aspectRatio(CGSize(width: 335, height: 175), contentMode: .fit)
-                
+            
             
             HStack {
                 
@@ -43,7 +43,7 @@ struct CardView: View {
                         .multilineTextAlignment(.leading)
                         .padding(.bottom, 20.0)
                     
-                        
+                    
                     HStack {
                         
                         // Icon + # of lessons
@@ -52,7 +52,7 @@ struct CardView: View {
                             .frame(width: 15, height: 15)
                         Text(lessons)
                             .font(Font.system(size: 10))
-                            
+                        
                         Spacer()
                         
                         // Icon + amount of time
