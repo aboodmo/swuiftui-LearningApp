@@ -1,6 +1,6 @@
 # swuiftui-LearningApp
 
-An iOS application that creates lesson and assesment modules based on the JSON file.
+An iOS application that creates lesson and assessment modules based on the JSON file.
 
 # What I Learned
 
